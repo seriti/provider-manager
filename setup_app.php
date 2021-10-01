@@ -8,7 +8,8 @@ This tells the framework about module: name, sub-memnu route list and title, dat
 
 $container['config']->set('module','provider',['name'=>'Service providers',
                                              'route_root'=>'admin/provider/',
-                                             'route_list'=>['dashboard'=>'Dashboard','provider'=>'Service provider','task'=>'Provider Task management','report'=>'Reports'],
+                                             'route_list'=>['dashboard'=>'Dashboard','provider'=>'Service provider','task'=>'Provider Task management',
+                                                            'expense'=>'Provider expenses','report'=>'Reports'],
                                              'table_prefix'=>'prv_'
                                             ]);
 

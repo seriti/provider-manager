@@ -9,6 +9,9 @@ $app->group('/admin', function () {
 
     $this->group('/provider', function () {
         $this->any('/dashboard', \App\Provider\DashboardController::class);
+        $this->any('/expense', \App\Provider\ExpenseController::class);
+        $this->any('/expense_file', \App\Provider\ExpenseFileController::class);
+        $this->any('/expense_type', \App\Provider\ExpenseTypeController::class);
         $this->any('/provider', \App\Provider\ProviderController::class);
         $this->any('/provider_file', \App\Provider\ProviderFileController::class);
         $this->any('/task', \App\Provider\TaskController::class);

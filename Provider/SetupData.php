@@ -8,7 +8,7 @@ class SetupData extends SetupModuledata
 
     public function setupSql()
     {
-        $this->tables = ['provider','task','file','task_diary'];
+        $this->tables = ['provider','task','files','task_diary','expense','expense_type'];
 
         $this->addCreateSql('provider',
                             'CREATE TABLE `TABLE_NAME` (
@@ -70,6 +70,30 @@ class SetupData extends SetupModuledata
                               KEY `service_file_idx1` (`location_id`),
                               FULLTEXT KEY `service_file_idx2` (`key_words`)
                             ) ENGINE=MyISAM DEFAULT CHARSET=utf8');
+
+        $this->addCreateSql('expense',
+                            'CREATE TABLE `TABLE_NAME` (
+                              `expense_id` int(11) NOT NULL AUTO_INCREMENT,
+                              `type` varchar(64) NOT NULL,
+                              `date` date NOT NULL,
+                              `provider_id` int(11) NOT NULL,
+                              `type_id` int(11) NOT NULL,
+                              `user_id` int(11) NOT NULL,
+                              `amount` decimal(12,2) NOT NULL,
+                              `comment` text NOT NULL,
+                              `status` varchar(64) NOT NULL,
+                              PRIMARY KEY (`expense_id`)
+                            ) ENGINE=MyISAM DEFAULT CHARSET=utf8');
+
+        $this->addCreateSql('expense_type',
+                            'CREATE TABLE `TABLE_NAME` (
+                              `type_id` int(11) NOT NULL AUTO_INCREMENT,
+                              `name` varchar(64) NOT NULL,
+                              `description` text NOT NULL,
+                              `status` varchar(64) NOT NULL,
+                              `rank` int(11) NOT NULL,
+                              PRIMARY KEY (`type_id`)
+                            ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8');
 
         //initialisation
         $this->addInitialSql('INSERT INTO `TABLE_PREFIXprovider` (name,email,status,contact_name) '.
