@@ -8,7 +8,7 @@ class SetupData extends SetupModuledata
 
     public function setupSql()
     {
-        $this->tables = ['provider','task','files','task_diary','expense','expense_type'];
+        $this->tables = ['provider','task','file','task_diary','expense','expense_type'];
 
         $this->addCreateSql('provider',
                             'CREATE TABLE `TABLE_NAME` (

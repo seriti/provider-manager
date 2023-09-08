@@ -9,7 +9,7 @@ use Seriti\Tools\Validate;
 class ExpenseType extends Table 
 {
     //configure
-    public function setup() 
+    public function setup($param = []) 
     {
         $param = ['row_name'=>'Expense Type','col_label'=>'name'];
         parent::setup($param);

@@ -13,7 +13,7 @@ use App\Provider\Helpers;
 class Task extends Table 
 {
     //configure
-    public function setup() 
+    public function setup($param = []) 
     {
         $param = ['row_name'=>'Management Task','col_label'=>'name'];
         parent::setup($param);
@@ -51,7 +51,7 @@ class Task extends Table
                                'action_frequency','action_committee','description','remarks','status'),array('rows'=>4));
 
         $this->addSelect('user_id','SELECT user_id,name FROM user_admin WHERE status <> "HIDE" ORDER BY name');
-        $this->addSelect('provider_id','SELECT provider_id,name FROM '.TABLE_PREFIX.'provider ORDER BY provider_id');
+        $this->addSelect('provider_id','SELECT provider_id,name FROM '.TABLE_PREFIX.'provider ORDER BY name');
         $this->addSelect('status','(SELECT "NEW") UNION (SELECT "DONE") UNION (SELECT "CANCEL")');
         $this->addSelect('action_frequency','(SELECT "Project") UNION (SELECT "Daily") UNION (SELECT "Weekly") 
                                              UNION (SELECT "Monthly") UNION (SELECT "Quarterly")

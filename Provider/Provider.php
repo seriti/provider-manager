@@ -9,7 +9,7 @@ use Seriti\Tools\Validate;
 class Provider extends Table 
 {
     //configure
-    public function setup() 
+    public function setup($param = []) 
     {
         $param = ['row_name'=>'Service provider','col_label'=>'name'];
         parent::setup($param);

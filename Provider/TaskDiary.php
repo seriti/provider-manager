@@ -8,7 +8,7 @@ use Seriti\Tools\Html;
 class TaskDiary extends Table 
 {
     //configure
-    public function setup() 
+    public function setup($param = []) 
     {
         $param = ['row_name'=>'Diary entry','row_name_plural'=>'Diary entries','col_label'=>'subject','pop_up'=>true];
         parent::setup($param);
